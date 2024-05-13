@@ -5,6 +5,7 @@ const Form = ({items,setItems,addItem}) => {
     const handleSubmit = (e)=>{
         e.preventDefault();
         addItem(item);
+        setItem('');
         
     }
     const [item, setItem] = useState('')

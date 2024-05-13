@@ -1,7 +1,8 @@
-import { isValidElement, useState } from "react";
+import { useState } from "react";
 import Form from "./Form";
 import { ToastContainer, toast } from 'react-toastify'
 import { nanoid } from "nanoid";
+import Items from "./Items";
 
 
 const App = () => {
@@ -12,7 +13,7 @@ const addItem = (item)=>{
   
   try {
     
-      const newItems = [...items,{name:item,prop:false,id:nanoid()}];
+      const newItems = [...items,{name:item,completed:false,id:nanoid()}];
       setItems(newItems);
       
       toast.success('success')
@@ -27,11 +28,21 @@ const addItem = (item)=>{
 
 }}
 
-console.log(items);
+const removeItem = (id)=>{
+  
+  const updatedItems = items.filter((item)=>{
+    return item.id!==id;  
+  })
+  setItems(updatedItems);
+
+}
+
+
   return (
   <section className="section-center">
     <ToastContainer className="top-center"/>
     <Form items={items} addItem={addItem} setItems={setItems}/>
+    <Items items={items} removeItem={removeItem}/>
     </section>
 )};
 
