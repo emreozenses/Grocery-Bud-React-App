@@ -2,11 +2,11 @@ import React from 'react'
 import SingleItem from './SingleItem'
 import { nanoid } from 'nanoid'
 
-const Items = ({items,removeItem}) => {
+const Items = ({items,removeItem,editItem}) => {
   return (
     <div className='items'>
       {items.map((item)=>{
-        return <SingleItem key={item.id} item={item} removeItem={removeItem}/>
+        return <SingleItem key={item.id} item={item} editItem={editItem} removeItem={removeItem}/>
       })}  
     </div>
   )
