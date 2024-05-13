@@ -32,7 +32,7 @@ const addItem = (item)=>{
     
       const newItems = [...items,{name:item,completed:false,id:nanoid()}];
       setItems(newItems);
-      toast.success('success');
+      toast.success('item added');
       setLocalStorage(newItems);
     
     
@@ -41,7 +41,7 @@ const addItem = (item)=>{
     
   }
 } else {
-  toast.error('please insert your item')
+  toast.error('please insert a value')
 
 }}
 
@@ -52,7 +52,7 @@ const removeItem = (id)=>{
     })
     setItems(updatedItems);
     setLocalStorage(updatedItems);
-    toast.warning('the item removed!')
+    toast.success('item removed')
     
   } catch (error) {
     toast.error('the item could not removed')
